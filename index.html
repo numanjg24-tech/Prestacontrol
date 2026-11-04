@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b3f">
+<title>PrestaControl · v8 dashboard instalable</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--navy:#071b33;--navy2:#0d2948;--teal:#16c7bd;--teal2:#0e9f9a;--gold:#eab84c;--bg:#f3f6fa;--ink:#14243a;--muted:#748196;--line:#e5eaf1;--white:#fff;--red:#d9534f;--amber:#d99b2b;--shadow:0 12px 32px rgba(12,34,61,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}.app{max-width:1440px;margin:auto;min-height:100vh}.top{background:linear-gradient(115deg,#071b33,#0c3152);color:white;padding:17px 26px;display:flex;justify-content:space-between;align-items:center;gap:14px;box-shadow:0 5px 22px #06172b22}.brand{display:flex;gap:12px;align-items:center}.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(145deg,#16c7bd,#087f91);display:grid;place-items:center;color:white;box-shadow:0 5px 16px #16c7bd44}.logo svg{width:29px;height:29px}.brand h1{font-size:20px;margin:0;font-weight:800;letter-spacing:-.5px}.brand small{display:block;color:#9cb6cc;font-size:9px;letter-spacing:1.7px;margin-top:3px}.top button{background:#153c5b;color:white;border:1px solid #315775}.layout{display:grid;grid-template-columns:238px 1fr;min-height:calc(100vh - 80px)}nav{background:#fff;border-right:1px solid var(--line);padding:22px 14px}.navbtn{display:flex;width:100%;text-align:left;border:0;background:transparent;padding:13px 14px;border-radius:12px;margin:5px 0;color:#65748a;font-weight:650;cursor:pointer;transition:.18s}.navbtn.active,.navbtn:hover{background:#e8f8f6;color:#087f7a;box-shadow:inset 3px 0 #13b9b0}.navbtn.active{font-weight:800}main{padding:30px;min-width:0}.pagehead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px}.pagehead h2{margin:0;font-size:25px;letter-spacing:-.7px;font-weight:800}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:19px;box-shadow:var(--shadow)}.metric{position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-22px;top:-24px;background:#eaf9f7}.metric small{color:var(--muted);font-weight:650}.metric strong{display:block;font-size:26px;margin:10px 0 5px;letter-spacing:-.8px;color:#102a45}.metric span{font-size:12px;color:#07988f;font-weight:650}.section{margin-top:21px}.section h3{margin:0 0 14px;font-size:16px}.btn{border:0;border-radius:11px;padding:11px 16px;background:linear-gradient(135deg,#19c7b9,#0e9d98);color:#042f35;font-weight:800;cursor:pointer;box-shadow:0 4px 12px #0eaaa322;transition:.18s}.btn:hover{filter:brightness(.97);transform:translateY(-1px)}.btn.secondary{background:#edf2f6;color:#29445a;box-shadow:none}.btn.danger{background:#fae9e8;color:#a8322d;box-shadow:none}.btn.small{padding:8px 11px;font-size:12px}button:disabled{opacity:.5;cursor:not-allowed}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;padding:13px 11px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:10px;text-transform:uppercase;color:#8793a5;letter-spacing:.8px;font-weight:800}tbody tr:hover{background:#f8fbfd}.pill{display:inline-block;padding:5px 9px;border-radius:30px;font-size:11px;background:#e6f8f4;color:#087e65;font-weight:750}.pill.warn{background:#fff3db;color:#93600a}.pill.bad{background:#fae9e8;color:#a8322d}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:750;color:#42566d}input,select,textarea{width:100%;padding:12px 13px;border:1px solid #dce4ec;border-radius:10px;background:#fff;font:inherit;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:#19bdb3;box-shadow:0 0 0 3px #19bdb31c}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.hidden{display:none!important}.notice{padding:13px 15px;border-radius:12px;background:#fff8e8;color:#765719;font-size:12px;margin:13px 0;border:1px solid #f4e6c6}.empty{text-align:center;padding:34px;color:var(--muted)}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.clienthead{display:flex;justify-content:space-between;align-items:center;gap:8px}.foot{padding:20px;color:#91a0b1;font-size:11px;text-align:center}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav{display:flex;overflow:auto;border-right:0;border-bottom:1px solid var(--line);padding:9px 12px;position:sticky;top:0;z-index:3}.navbtn{white-space:nowrap;width:auto;margin:0 3px;padding:10px 12px;font-size:12px}.navbtn.active,.navbtn:hover{box-shadow:inset 0 -3px #13b9b0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:20px}.twocol{grid-template-columns:1fr}}
+@media(max-width:520px){.top{padding:13px 14px;align-items:flex-start;flex-wrap:wrap}.brand h1{font-size:18px}.brand small{font-size:8px}.logo{width:40px;height:40px}.top>div:last-child{width:100%;justify-content:flex-end}.grid{gap:9px}.metric{padding:14px}.metric strong{font-size:19px}.metric small{font-size:11px}.metric span{font-size:10px}main{padding:16px 12px 25px}.pagehead{align-items:flex-start}.pagehead h2{font-size:21px}.pagehead .btn{font-size:11px;padding:10px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:15px;border-radius:14px}.twocol{gap:12px}}
+
+/* Dashboard interactivo v8 */
+.dash-toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.dash-toolbar select{width:auto;min-width:145px;padding:9px 12px}
+.dash-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:16px;margin-top:16px}
+.chart{display:flex;align-items:flex-end;gap:12px;height:190px;padding:18px 8px 26px;border-bottom:1px solid var(--line)}
+.chart-col{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px}
+.chart-bar{width:min(34px,75%);min-height:3px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#20c9bd,#087f91);position:relative;transition:height .25s}
+.chart-bar.interest{background:linear-gradient(180deg,#f2c35b,#d99b2b)}
+.chart-label{font-size:10px;color:var(--muted);white-space:nowrap}
+.chart-legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--muted)}
+.legend-dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px}
+.progress{height:9px;border-radius:20px;background:#edf1f5;overflow:hidden;margin:8px 0 13px}
+.progress>span{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#16c7bd,#0e8d94)}
+.dash-alert{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.dash-alert:last-child{border:0}
+.dash-alert strong{font-size:13px}
+.quick-actions{display:flex;gap:8px;flex-wrap:wrap}
+.metric .metric-foot{display:block;color:var(--muted);font-weight:550;font-size:11px}
+@media(max-width:760px){.dash-grid{grid-template-columns:1fr}.chart{gap:5px}.chart-label{font-size:9px}}
+
+</style></head>
+<body><div class="app">
+<header class="top"><div class="brand"><div class="logo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M9 5.5h10l5 5V26H9a3 3 0 0 1-3-3V8.5a3 3 0 0 1 3-3Z" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M19 5.5v6h5M11 16l3 3 7-7M11 23h10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.5 3.5 25 6l4-4" stroke="#f2c35b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h1>PrestaControl</h1><small>CONTROL INTELIGENTE DE PRÉSTAMOS</small></div></div><div style="display:flex;gap:7px;flex-wrap:wrap">
+<button class="btn small" id="installBtn" onclick="installApp()">Instalar app</button>
+<button class="btn small" onclick="document.getElementById('importFile').click()">Importar</button>
+<input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)">
+<button class="btn small" onclick="exportData()">Exportar respaldo</button></div></header>
+<div class="layout"><nav id="nav">
+<button class="navbtn active" data-page="inicio">▦　Resumen</button><button class="navbtn" data-page="clientes">♙　Clientes</button><button class="navbtn" data-page="prestamos">↗　Préstamos</button><button class="navbtn" data-page="pagos">＄　Pagos</button><button class="navbtn" data-page="reportes">▥　Reportes</button><button class="navbtn" data-page="portal">◎　Portal cliente</button>
+</nav><main id="main"></main></div><div class="foot">PrestaControl v8 beta · Datos locales en este dispositivo · Exporta respaldos regularmente · Sin sincronización en nube</div></div>
+<script>
+const KEY='prestacontrol_v1';
+const EMPTY_DB={clients:[],loans:[],payments:[]};
+function loadDB(){try{const raw=localStorage.getItem(KEY);if(!raw)return JSON.parse(JSON.stringify(EMPTY_DB));const d=JSON.parse(raw);if(!d||!Array.isArray(d.clients)||!Array.isArray(d.loans)||!Array.isArray(d.payments))throw Error('Formato inválido');return d;}catch(e){console.error('Error leyendo datos locales',e);return JSON.parse(JSON.stringify(EMPTY_DB));}}
+let db=loadDB();let page='inicio';
+const money=n=>'C$ '+Number(n||0).toLocaleString('es-NI',{minimumFractionDigits:2,maximumFractionDigits:2});
+const today=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true;}catch(e){alert('No se pudo guardar. Exporta un respaldo y revisa el espacio disponible del navegador.');return false;}}
+function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function daysUntil(date){const a=new Date(today()+'T00:00:00'),b=new Date(date+'T00:00:00');return Math.round((b-a)/86400000)}
+function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function clientName(cid){return escapeHTML(db.clients.find(c=>c.id===cid)?.name||'Cliente eliminado')}
+function num(v){const n=Number(v);return Number.isFinite(n)?n:0}
+function paid(loan){return db.payments.filter(p=>p.loanId===loan.id).reduce((s,p)=>s+num(p.amount),0)}
+function principalPaid(loan){return db.payments.filter(p=>p.loanId===loan.id).reduce((s,p)=>s+num(p.principal),0)}
+function interestPaid(loan){return db.payments.filter(p=>p.loanId===loan.id).reduce((s,p)=>s+num(p.interest),0)}
+function balance(loan){return Math.max(0,num(loan.amount)-principalPaid(loan))}
+function interestDue(loan){let base=loan.interestMode==='original'?num(loan.amount):balance(loan);return Math.max(0,base*num(loan.rate)/100)}
+function pendingInterest(loan){return Math.max(0,interestDue(loan)-interestPaid(loan))}
+function totalOutstanding(loan){return Math.max(0,balance(loan)+pendingInterest(loan))}
+function loanState(loan){return totalOutstanding(loan)<=0.009?'Pagado':loan.due<today()?'Atrasado':'Activo'}
+function nav(p){page=p;document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===p));render()}
+document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>nav(b.dataset.page));
+function render(){let el=document.getElementById('main');({inicio:home,clientes:clients,prestamos:loans,pagos:payments,reportes:reports,portal:portal}[page]||home)(el)}
+let dashboardPeriod='90';
+function home(el){
+ const active=db.loans.filter(l=>totalOutstanding(l)>0.009);
+ const late=active.filter(l=>l.due<today());
+ const capital=active.reduce((s,l)=>s+balance(l),0);
+ const interest=db.payments.reduce((s,p)=>s+num(p.interest),0);
+ const collected=db.payments.reduce((s,p)=>s+num(p.amount),0);
+ const principalRecovered=db.payments.reduce((s,p)=>s+num(p.principal),0);
+ const pending=active.reduce((s,l)=>s+totalOutstanding(l),0);
+ const clientsWithLoans=new Set(active.map(l=>l.clientId)).size;
+ const overdueAmount=late.reduce((s,l)=>s+totalOutstanding(l),0);
+ const monthNow=today().slice(0,7);
+ const filteredPayments=db.payments.filter(p=>{
+   if(dashboardPeriod==='all')return true;
+   if(dashboardPeriod==='month')return (p.date||'').slice(0,7)===monthNow;
+   const days=Number(dashboardPeriod)||90;
+   return daysUntil(p.date)>=0 && daysUntil(p.date)<=days;
+ });
+ const periodTotal=filteredPayments.reduce((s,p)=>s+num(p.amount),0);
+ const periodInterest=filteredPayments.reduce((s,p)=>s+num(p.interest),0);
+ const periodCapital=filteredPayments.reduce((s,p)=>s+num(p.principal),0);
+ const months=[];
+ for(let i=5;i>=0;i--){
+   const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-i);
+   const key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+   months.push({key,label:d.toLocaleDateString('es-NI',{month:'short'}).replace('.','')});
+ }
+ const series=months.map(m=>{
+   const ps=db.payments.filter(p=>(p.date||'').slice(0,7)===m.key);
+   return {...m,capital:ps.reduce((s,p)=>s+num(p.principal),0),interest:ps.reduce((s,p)=>s+num(p.interest),0)};
+ });
+ const maxVal=Math.max(1,...series.map(x=>x.capital+x.interest));
+ const chart=series.map(x=>{
+   const total=x.capital+x.interest, h=Math.max(total?4:0,total/maxVal*132);
+   const capH=total?x.capital/total*h:0, intH=total?x.interest/total*h:0;
+   return `<div class="chart-col" title="${x.label}: ${money(total)}"><div style="height:${h}px;width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center"><div class="chart-bar interest" style="height:${intH}px;width:26px;min-height:${x.interest?3:0}px"></div><div class="chart-bar" style="height:${capH}px;width:26px;min-height:${x.capital?3:0}px"></div></div><span class="chart-label">${escapeHTML(x.label)}</span></div>`;
+ }).join('');
+ const dueSoon=active.filter(l=>l.due>=today()).sort((a,b)=>a.due.localeCompare(b.due)).slice(0,5);
+ const recent=db.payments.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,5);
+ const totalInitial=db.loans.reduce((s,l)=>s+num(l.amount),0);
+ const recoveryPct=totalInitial>0?Math.min(100,principalRecovered/totalInitial*100):0;
+ el.innerHTML=`
+ <div class="pagehead"><div><h2>Dashboard</h2><div class="muted">Panel de control de tu cartera · actualización automática</div></div><div class="dash-toolbar"><select aria-label="Filtrar período del dashboard" onchange="setDashboardPeriod(this.value)"><option value="30" ${dashboardPeriod==='30'?'selected':''}>Últimos 30 días</option><option value="90" ${dashboardPeriod==='90'?'selected':''}>Últimos 90 días</option><option value="month" ${dashboardPeriod==='month'?'selected':''}>Este mes</option><option value="all" ${dashboardPeriod==='all'?'selected':''}>Todo el historial</option></select><button class="btn" onclick="nav('prestamos');newLoan()">＋ Nuevo préstamo</button></div></div>
+ <div class="grid">
+  <div class="card metric"><small>Capital activo</small><strong>${money(capital)}</strong><span class="metric-foot">${active.length} préstamos con saldo</span></div>
+  <div class="card metric"><small>Por cobrar total</small><strong>${money(pending)}</strong><span class="metric-foot">Capital + interés estimado pendiente</span></div>
+  <div class="card metric"><small>Intereses cobrados</small><strong>${money(interest)}</strong><span class="metric-foot">Ingreso registrado histórico</span></div>
+  <div class="card metric"><small>En mora</small><strong>${late.length}</strong><span class="metric-foot">${money(overdueAmount)} pendientes vencidos</span></div>
+ </div>
+ <div class="dash-grid">
+  <div class="card"><div class="clienthead"><h3>Flujo de cobros</h3><span class="pill">6 meses</span></div><div class="muted" style="font-size:11px">Capital recuperado e intereses recibidos por mes</div><div class="chart">${chart||'<div class="empty">Sin datos</div>'}</div><div class="chart-legend"><span><i class="legend-dot" style="background:#16b9ae"></i>Capital</span><span><i class="legend-dot" style="background:#eab84c"></i>Intereses</span></div></div>
+  <div class="card"><h3>Indicadores de cartera</h3><div class="dash-alert"><span class="muted">Clientes con préstamos activos</span><strong>${clientsWithLoans}</strong></div><div class="dash-alert"><span class="muted">Capital inicial colocado</span><strong>${money(totalInitial)}</strong></div><div class="dash-alert"><span class="muted">Capital recuperado</span><strong>${money(principalRecovered)}</strong></div><div class="muted" style="font-size:11px;margin-top:15px">Recuperación de capital</div><div class="progress"><span style="width:${recoveryPct}%"></span></div><div class="muted" style="font-size:11px">${recoveryPct.toFixed(1)}% del capital histórico recuperado</div></div>
+ </div>
+ <div class="dash-grid">
+  <div class="card"><div class="clienthead"><h3>Rendimiento del período</h3><span class="pill">${dashboardPeriod==='all'?'Histórico':dashboardPeriod==='month'?'Este mes':'Últimos '+dashboardPeriod+' días'}</span></div><div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><div><small class="muted">Recibido</small><strong style="display:block;font-size:17px">${money(periodTotal)}</strong></div><div><small class="muted">A capital</small><strong style="display:block;font-size:17px">${money(periodCapital)}</strong></div><div><small class="muted">Interés</small><strong style="display:block;font-size:17px">${money(periodInterest)}</strong></div></div><div class="muted" style="font-size:11px;margin-top:13px">${filteredPayments.length} pagos incluidos en el período</div><div class="actions"><button class="btn secondary small" onclick="nav('pagos')">Ver pagos</button><button class="btn secondary small" onclick="nav('reportes')">Abrir reportes</button></div></div>
+  <div class="card"><h3>Seguimiento de mora</h3>${late.length?late.sort((a,b)=>a.due.localeCompare(b.due)).slice(0,4).map(l=>`<div class="dash-alert"><div><strong>${clientName(l.clientId)}</strong><div class="muted" style="font-size:11px">Venció ${l.due} · ${Math.abs(daysUntil(l.due))} días</div></div><b style="color:var(--red)">${money(totalOutstanding(l))}</b></div>`).join(''):'<div class="empty">¡Excelente! No hay préstamos vencidos.</div>'}</div>
+ </div>
+ <div class="dash-grid">
+  <div class="card"><h3>Próximos vencimientos</h3>${dueRows(dueSoon)}</div>
+  <div class="card"><h3>Actividad reciente</h3>${recent.length?recent.map(p=>`<div class="dash-alert"><div><strong>${clientName(p.clientId)}</strong><div class="muted" style="font-size:11px">${p.date||'Sin fecha'}</div></div><b>${money(p.amount)}</b></div>`).join(''):'<div class="empty">Todavía no hay pagos registrados.</div>'}</div>
+ </div>
+ <div class="notice">Los datos se actualizan al guardar clientes, préstamos y pagos. Los intereses continúan siendo estimaciones mensuales simplificadas; revisa las condiciones reales de cada contrato.</div>`;
+}
+function setDashboardPeriod(value){dashboardPeriod=value;home(document.getElementById('main'));}
+
+function dueRows(arr){return arr.length?`<div class="tablewrap"><table><thead><tr><th>Cliente</th><th>Fecha</th><th>Saldo estimado</th></tr></thead><tbody>${arr.map(l=>`<tr><td>${clientName(l.clientId)}</td><td>${l.due}</td><td>${money(totalOutstanding(l))}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No hay vencimientos próximos.</div>'}
+function clients(el){el.innerHTML=`<div class="pagehead"><div><h2>Clientes</h2><div class="muted">${db.clients.length} registrados</div></div><button class="btn" onclick="clientForm()">＋ Agregar cliente</button></div><div class="card tablewrap">${db.clients.length?`<table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Préstamos</th><th>Acción</th></tr></thead><tbody>${db.clients.map(c=>`<tr><td><b>${c.name}</b></td><td>${c.phone||'—'}</td><td>${db.loans.filter(l=>l.clientId===c.id).length}</td><td><button class="btn secondary small" onclick="clientDetail('${c.id}')">Ver</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">Aún no tienes clientes. Agrega el primero para comenzar.</div>'}</div>`}
+function clientForm(){document.getElementById('modal')?.remove();let d=document.createElement('div');d.id='modal';d.style='position:fixed;inset:0;background:#071b28aa;display:grid;place-items:center;padding:16px;z-index:5';d.innerHTML=`<div class="card" style="width:min(500px,100%)"><h3>Nuevo cliente</h3><form id="cf" class="formgrid"><div class="field full"><label>Nombre completo *</label><input name="name" required></div><div class="field"><label>Teléfono</label><input name="phone"></div><div class="field"><label>Identificación</label><input name="doc"></div><div class="field full"><label>Notas</label><textarea name="notes"></textarea></div><div class="field full actions"><button class="btn">Guardar cliente</button><button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button></div></form></div>`;document.body.append(d);d.querySelector('form').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.clients.push({id:id(),name:f.get('name'),phone:f.get('phone'),doc:f.get('doc'),notes:f.get('notes')});save();closeModal();render()}}
+function closeModal(){document.getElementById('modal')?.remove()}
+function clientDetail(cid){let c=db.clients.find(x=>x.id===cid);alert(`${c.name}\nTeléfono: ${c.phone||'No registrado'}\nPréstamos: ${db.loans.filter(l=>l.clientId===cid).length}\nSaldo total: ${money(db.loans.filter(l=>l.clientId===cid).reduce((s,l)=>s+totalOutstanding(l),0))}`)}
+function loans(el){el.innerHTML=`<div class="pagehead"><div><h2>Préstamos</h2><div class="muted">Capital, tasas, modalidades y vencimientos</div></div><button class="btn" onclick="newLoan()">＋ Nuevo préstamo</button></div><div class="card tablewrap">${db.loans.length?`<table><thead><tr><th>Cliente</th><th>Capital inicial</th><th>Tasa mensual</th><th>Modalidad</th><th>Vence</th><th>Saldo estimado</th><th>Estado</th><th></th></tr></thead><tbody>${db.loans.map(l=>`<tr><td>${clientName(l.clientId)}</td><td>${money(l.amount)}</td><td>${l.rate}%</td><td>${l.interestMode==='original'?'Capital original':'Saldo pendiente'}</td><td>${l.due}</td><td>${money(totalOutstanding(l))}</td><td><span class="pill ${loanState(l)==='Atrasado'?'bad':loanState(l)==='Pagado'?'':'warn'}">${loanState(l)}</span></td><td><button class="btn secondary small" onclick="loanDetail('${l.id}')">Ver</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No hay préstamos registrados.</div>'}</div>`}
+function newLoan(){if(!db.clients.length){alert('Primero registra un cliente.');nav('clientes');return}let d=document.createElement('div');d.id='modal';d.style='position:fixed;inset:0;background:#071b28aa;display:grid;place-items:center;padding:16px;z-index:5';d.innerHTML=`<div class="card" style="width:min(600px,100%);max-height:95vh;overflow:auto"><h3>Registrar préstamo</h3><form id="lf" class="formgrid"><div class="field full"><label>Cliente *</label><select name="clientId" required>${db.clients.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div><div class="field"><label>Capital prestado (C$) *</label><input name="amount" type="number" min="1" step=".01" required></div><div class="field"><label>Interés mensual (%) *</label><input name="rate" type="number" min="0" step=".01" required value="5"></div><div class="field"><label>Calcular interés sobre</label><select name="interestMode"><option value="original">Capital original</option><option value="balance">Saldo pendiente</option></select></div><div class="field"><label>Modalidad de pago</label><select name="paymentMode"><option value="installments">Cuotas establecidas</option><option value="flexible">Abonos libres</option></select></div><div class="field"><label>Frecuencia</label><select name="frequency"><option>Mensual</option><option>Quincenal</option><option>Semanal</option><option>Flexible</option></select></div><div class="field"><label>Próximo vencimiento *</label><input name="due" type="date" value="${today()}" required></div><div class="field full"><label>Notas / condiciones</label><textarea name="notes"></textarea></div><div class="notice field full">El prototipo calcula una referencia mensual simple. Antes de usarlo para cobrar, confirma las reglas, fechas y condiciones del contrato.</div><div class="field full actions"><button class="btn">Guardar préstamo</button><button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button></div></form></div>`;document.body.append(d);d.querySelector('form').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.loans.push({id:id(),clientId:f.get('clientId'),amount:+f.get('amount'),rate:+f.get('rate'),interestMode:f.get('interestMode'),paymentMode:f.get('paymentMode'),frequency:f.get('frequency'),due:f.get('due'),notes:f.get('notes'),created:today()});save();closeModal();render()}}
+function loanDetail(lid){let l=db.loans.find(x=>x.id===lid);let txt=`Préstamo de ${clientName(l.clientId)}\nCapital inicial: ${money(l.amount)}\nCapital pendiente: ${money(balance(l))}\nInterés mensual referencial: ${money(interestDue(l))}\nInterés cobrado: ${money(interestPaid(l))}\nTotal estimado pendiente: ${money(totalOutstanding(l))}\nPróximo vencimiento: ${l.due}`;if(confirm(txt+'\n\n¿Registrar un pago para este préstamo?')){nav('pagos');paymentForm(lid)}}
+function payments(el){el.innerHTML=`<div class="pagehead"><div><h2>Pagos y abonos</h2><div class="muted">Registra cuánto corresponde a capital e intereses</div></div><button class="btn" onclick="paymentForm()">＋ Registrar pago</button></div><div class="card tablewrap">${db.payments.length?`<table><thead><tr><th>Fecha</th><th>Cliente</th><th>Préstamo</th><th>Total</th><th>Capital</th><th>Interés</th></tr></thead><tbody>${db.payments.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<tr><td>${p.date}</td><td>${clientName(p.clientId)}</td><td>${p.loanId.slice(0,6)}</td><td>${money(p.amount)}</td><td>${money(p.principal)}</td><td>${money(p.interest)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">Todavía no hay pagos registrados.</div>'}</div>`}
+function paymentForm(preselect){
+ let eligible=db.loans.filter(l=>totalOutstanding(l)>0.009);
+ if(!eligible.length){alert('No hay préstamos con saldo pendiente.');return}
+ let d=document.createElement('div');d.id='modal';
+ d.style='position:fixed;inset:0;background:#071b28aa;display:grid;place-items:center;padding:16px;z-index:5';
+ d.innerHTML=`<div class="card" style="width:min(540px,100%);max-height:95vh;overflow:auto">
+ <h3>Registrar pago / abono</h3>
+ <form id="pf" class="formgrid">
+ <div class="field full"><label>Préstamo *</label><select name="loanId">${eligible.map(l=>`<option value="${l.id}" ${l.id===preselect?'selected':''}>${clientName(l.clientId)} · ${money(totalOutstanding(l))} pendiente</option>`).join('')}</select></div>
+ <div class="field"><label>Fecha *</label><input name="date" type="date" value="${today()}" required></div>
+ <div class="field"><label>Monto recibido (C$) *</label><input name="amount" type="number" min=".01" step=".01" required></div>
+ <div class="field"><label>Aplicar a intereses (auto)</label><input name="interest" type="number" min="0" step=".01" value="0" required></div>
+ <div class="field"><label>Aplicar a capital (auto)</label><input name="principal" type="number" min="0" step=".01" value="0" required></div>
+ <div class="field full"><div class="notice" id="allocationInfo">Escribe el monto recibido. El sistema aplicará primero el interés pendiente y el excedente al capital, según la tasa y modalidad del préstamo.</div></div>
+ <div class="field full"><label>Referencia / observación</label><input name="note"></div>
+ <div class="field full actions"><button class="btn">Guardar pago</button><button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button></div>
+ </form></div>`;
+ document.body.append(d);
+ let form=d.querySelector('form'), amountInput=form.elements.amount, interestInput=form.elements.interest, principalInput=form.elements.principal, loanInput=form.elements.loanId, info=d.querySelector('#allocationInfo');
+ function updateAllocation(){
+   let l=db.loans.find(x=>x.id===loanInput.value), amount=Math.max(0,num(amountInput.value));
+   if(!l)return;
+   let i=Math.min(amount,pendingInterest(l));
+   let p=Math.min(Math.max(0,amount-i),balance(l));
+   interestInput.value=i.toFixed(2);principalInput.value=p.toFixed(2);
+   let excess=Math.max(0,amount-i-p);
+   info.textContent=`Distribución sugerida: ${money(i)} a intereses + ${money(p)} a capital. Interés pendiente: ${money(pendingInterest(l))}. Capital pendiente: ${money(balance(l))}.`+(excess>0.009?` El monto supera el saldo total por ${money(excess)}.`:'');
+ }
+ amountInput.addEventListener('input',updateAllocation);
+ loanInput.addEventListener('change',updateAllocation);
+ form.onsubmit=e=>{
+   e.preventDefault();
+   let f=new FormData(form),l=db.loans.find(x=>x.id===f.get('loanId')),amount=num(f.get('amount')),interest=num(f.get('interest')),principal=num(f.get('principal'));
+   if(!l||!Number.isFinite(amount)||amount<=0||interest<0||principal<0){alert('Introduce montos válidos y positivos.');return}
+   if(Math.abs(amount-interest-principal)>.009){alert('El monto recibido supera el saldo pendiente o la distribución no coincide. Ajusta el monto.');return}
+   if(principal>balance(l)+.001){alert('El abono a capital supera el saldo pendiente.');return}
+   if(interest>pendingInterest(l)+.001){alert('El interés supera el interés pendiente estimado.');return}
+   db.payments.push({id:id(),loanId:l.id,clientId:l.clientId,date:f.get('date'),amount,interest,principal,note:f.get('note')});
+   l.status=totalOutstanding(l)<=.009?'Pagado':'Activo';
+   save();closeModal();render();
+ };
+ updateAllocation();
+}
+function reports(el){let byMonth={};db.payments.forEach(p=>{let m=p.date.slice(0,7);byMonth[m]??={capital:0,interest:0,total:0};byMonth[m].capital+=p.principal;byMonth[m].interest+=p.interest;byMonth[m].total+=p.amount});let months=Object.keys(byMonth).sort().reverse();let cap=db.loans.reduce((s,l)=>s+l.amount,0),int=db.payments.reduce((s,p)=>s+p.interest,0);el.innerHTML=`<div class="pagehead"><div><h2>Reportes y ganancias</h2><div class="muted">Resumen basado en pagos realmente registrados</div></div><button class="btn secondary" onclick="exportCSV()">Descargar CSV</button></div><div class="grid"><div class="card metric"><small>Capital colocado histórico</small><strong>${money(cap)}</strong></div><div class="card metric"><small>Intereses cobrados</small><strong>${money(int)}</strong></div><div class="card metric"><small>Capital recuperado</small><strong>${money(db.payments.reduce((s,p)=>s+p.principal,0))}</strong></div><div class="card metric"><small>Saldo de capital</small><strong>${money(db.loans.reduce((s,l)=>s+balance(l),0))}</strong></div></div><div class="card section tablewrap"><h3>Desglose por mes</h3>${months.length?`<table><thead><tr><th>Mes</th><th>Capital recuperado</th><th>Intereses cobrados</th><th>Total recibido</th></tr></thead><tbody>${months.map(m=>`<tr><td>${m}</td><td>${money(byMonth[m].capital)}</td><td>${money(byMonth[m].interest)}</td><td><b>${money(byMonth[m].total)}</b></td></tr>`).join('')}</tbody></table>`:'<div class="empty">Registra pagos para generar reportes mensuales.</div>'}</div><div class="notice">Importante: los intereses cobrados se muestran como ingreso por intereses, no como utilidad neta. Para conocer utilidad neta habría que registrar gastos, mora, descuentos y otros costos.</div>`}
+function portal(el){el.innerHTML=`<div class="pagehead"><div><h2>Portal del cliente</h2><div class="muted">Vista demostrativa de consulta de estado de cuenta</div></div></div><div class="notice">El acceso independiente de cada cliente requiere autenticación y una base de datos segura en un servidor. Esta versión local no publica ni protege cuentas de clientes.</div><div class="card"><div class="field"><label>Seleccionar cliente para previsualizar</label><select id="pc" onchange="portalDetail(this.value)"><option value="">Selecciona un cliente</option>${db.clients.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div><div id="pd" class="section empty">Aquí aparecerá el estado de cuenta del cliente.</div></div>`}
+function portalDetail(cid){let c=db.clients.find(x=>x.id===cid),ls=db.loans.filter(l=>l.clientId===cid);document.getElementById('pd').innerHTML=c?`<h3>${c.name}</h3>${ls.length?ls.map(l=>`<div class="card section"><b>Préstamo · ${money(l.amount)}</b><p>Capital pendiente: ${money(balance(l))}</p><p>Interés mensual referencial: ${money(interestDue(l))}</p><p>Total estimado pendiente: <b>${money(totalOutstanding(l))}</b></p><p>Próximo vencimiento: ${l.due}</p></div>`).join(''):'Sin préstamos registrados.'}`:''}
+function exportData(){let blob=new Blob([JSON.stringify({app:'PrestaControl',version:8,exportedAt:new Date().toISOString(),...db},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='prestacontrol-respaldo.json';a.click();URL.revokeObjectURL(a.href)}
+function exportCSV(){let rows=[['Fecha','Cliente','Monto','Capital','Intereses','Nota'],...db.payments.map(p=>[p.date,clientName(p.clientId),p.amount,p.principal,p.interest,p.note||''])];let csv=rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='prestacontrol-pagos.csv';a.click();URL.revokeObjectURL(a.href)}
+render();
+let installPrompt=null;
+const installButton=document.getElementById('installBtn');
+const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+if(isStandalone()){installButton.hidden=true;installButton.textContent='Aplicación instalada';}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;installButton.hidden=false;installButton.textContent='Instalar app';});
+window.addEventListener('appinstalled',()=>{installPrompt=null;installButton.hidden=true;});
+async function installApp(){
+ if(isStandalone()){alert('PrestaControl ya está instalada en este dispositivo.');return;}
+ if(installPrompt){installPrompt.prompt();const choice=await installPrompt.userChoice;installPrompt=null;if(choice&&choice.outcome==='accepted')installButton.hidden=true;return;}
+ alert('Para instalar PrestaControl:\\n\\nAndroid (Chrome): abre el menú ⋮ y elige “Instalar aplicación” o “Agregar a pantalla principal”.\\n\\nSi no aparece, publica/abre la app desde una dirección HTTPS y vuelve a intentarlo.\\niPhone/iPad (Safari): toca Compartir y selecciona “Añadir a pantalla de inicio”.');
+}
+function importData(ev){let file=ev.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=()=>{try{let data=JSON.parse(reader.result);if(!data||!Array.isArray(data.clients)||!Array.isArray(data.loans)||!Array.isArray(data.payments))throw Error();if(data.clients.some(c=>!c.id||!c.name)||data.loans.some(l=>!l.id||!l.clientId||!Number.isFinite(+l.amount)||+l.amount<=0)||data.payments.some(p=>!p.id||!p.loanId||!Number.isFinite(+p.amount)||+p.amount<=0))throw Error();if(!confirm('Esto reemplazará los datos actuales de este dispositivo. ¿Continuar?'))return;db={clients:data.clients,loans:data.loans.map(l=>({...l,amount:num(l.amount),rate:num(l.rate)})),payments:data.payments.map(p=>({...p,amount:num(p.amount),principal:num(p.principal),interest:num(p.interest)}))};save();render();alert('Respaldo importado correctamente.')}catch(e){alert('El archivo no parece ser un respaldo válido de PrestaControl.')}};reader.readAsText(file);ev.target.value=''}
+if('serviceWorker' in navigator && location.protocol!=='file:'){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(reg=>reg.update()).catch(err=>console.warn('PWA no disponible en este origen:',err)));
+}
+</script></body></html>
