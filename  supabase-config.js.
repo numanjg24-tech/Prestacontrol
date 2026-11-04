@@ -1,0 +1,4 @@
+window.PRESTACONTROL_SUPABASE = {
+  url: "https://hbznripzndnprzsukkfm.supabase.co",
+  anonKey: "sb_publishable_8Y6KNuLLO3eN9USf-9y14A_LWOOHH3W"
+};
